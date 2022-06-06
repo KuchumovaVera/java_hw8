@@ -1,12 +1,13 @@
 package ru.netology.statistic;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
     @Test
-    void shouldSetCurrentStationZero () {
+    void shouldSetCurrentStationZero() {
         Radio radio = new Radio();
         int currentStation = 10;
         radio.setCurrentStation(currentStation);
@@ -15,7 +16,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldSetCurrentStationMinus () {
+    void shouldSetCurrentStationMinus() {
         Radio radio = new Radio();
         int currentStation = -1;
         radio.setCurrentStation(currentStation);
@@ -28,7 +29,7 @@ class RadioTest {
         Radio radio = new Radio();
         int currentStation = 0;
         radio.setCurrentStation(currentStation);
-        radio.PreviousStation();
+        radio.previousStation();
         int expected = 9;
         assertEquals(expected, radio.getCurrentStation());
     }
@@ -38,7 +39,7 @@ class RadioTest {
         Radio radio = new Radio();
         int currentStation = 9;
         radio.setCurrentStation(currentStation);
-        radio.NextStation();
+        radio.nextStation();
         int expected = 0;
         assertEquals(expected, radio.getCurrentStation());
     }
@@ -48,7 +49,7 @@ class RadioTest {
         Radio radio = new Radio();
         int currentStation = 1;
         radio.setCurrentStation(currentStation);
-        radio.PreviousStation();
+        radio.previousStation();
         int expected = 0;
         assertEquals(expected, radio.getCurrentStation());
     }
@@ -58,7 +59,7 @@ class RadioTest {
         Radio radio = new Radio();
         int currentStation = 8;
         radio.setCurrentStation(currentStation);
-        radio.NextStation();
+        radio.nextStation();
         int expected = 9;
         assertEquals(expected, radio.getCurrentStation());
     }
