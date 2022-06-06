@@ -1,5 +1,13 @@
 package ru.netology.statistic;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Radio {
     private int currentStation;
     private int minStation;
@@ -15,6 +23,7 @@ public class Radio {
         this.maxVolume=maxVolume;
     }
     public int getCurrentStation() {
+
         return currentStation;
     }
 
