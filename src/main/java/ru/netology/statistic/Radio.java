@@ -2,43 +2,53 @@ package ru.netology.statistic;
 
 public class Radio {
     private int currentStation;
+    private int minStation;
+    private int maxStation=10;
     private int volume;
+    private int minVolume;
+    private int maxVolume=100;
 
+    public Radio(int currentStation,int maxStation, int volume, int maxVolume){
+        this.currentStation = currentStation;
+        this.maxStation=maxStation;
+        this.volume=volume;
+        this.maxVolume=maxVolume;
+    }
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > maxStation) {
             return;
         }
-        if (newCurrentStation < 0) {
+        if (currentStation < minStation) {
             return;
         }
-        currentStation = newCurrentStation;
+        this.currentStation = currentStation;
     }
 
     public void previousStation() {
-        if (currentStation == 0) {
-            this.currentStation = 9;
+        if (currentStation == minStation) {
+            this.currentStation = maxStation;
             return;
         }
         this.currentStation--;
     }
 
     public void nextStation() {
-        if (currentStation == 9) {
-            this.currentStation = 0;
+        if (currentStation == maxStation) {
+            this.currentStation = minStation;
             return;
         }
         this.currentStation++;
     }
 
     public void setVolume(int volume) {
-        if (volume < 0) {
+        if (volume < minVolume) {
             return;
         }
-        if (volume > 10) {
+        if (volume > maxVolume) {
             return;
         }
         this.volume = volume;
@@ -50,12 +60,18 @@ public class Radio {
     }
 
     public void volumeUp() {
-        if (volume < 10) {
+        if (volume==maxVolume){
+            this.volume=volume;
+        }
+        if (volume < maxVolume) {
             this.volume++;
         }
     }
 
     public void volumeDown() {
+        if (volume==minVolume){
+            this.volume=volume;
+        }
         if (volume > 0) {
             this.volume--;
         }
