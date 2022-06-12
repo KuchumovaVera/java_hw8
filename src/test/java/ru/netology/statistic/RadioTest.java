@@ -22,6 +22,7 @@ class RadioTest {
         assertEquals(expected, radio.getCurrentStation());
     }
 
+
     @Test
     void shouldSetCurrentStationMoreMax() {
         Radio radio = new Radio(10,10,30,100);
