@@ -2,32 +2,45 @@ package ru.netology.statistic;
 
 public class Radio {
     private int currentStation;
+    private int quantityOfStations;
     private int volume;
+
+    public Radio(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
+    }
+
+    public Radio() {
+        this.quantityOfStations = 10;
+    }
+
+    public int getQuantityOfStations() {
+        return quantityOfStations;
+    }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > quantityOfStations - 1) {
             return;
         }
-        if (newCurrentStation < 0) {
+        if (currentStation < 0) {
             return;
         }
-        currentStation = newCurrentStation;
+        this.currentStation = currentStation;
     }
 
     public void previousStation() {
         if (currentStation == 0) {
-            this.currentStation = 9;
+            this.currentStation = quantityOfStations - 1;
             return;
         }
         this.currentStation--;
     }
 
     public void nextStation() {
-        if (currentStation == 9) {
+        if (currentStation == quantityOfStations - 1) {
             this.currentStation = 0;
             return;
         }
@@ -38,7 +51,7 @@ public class Radio {
         if (volume < 0) {
             return;
         }
-        if (volume > 10) {
+        if (volume > 100) {
             return;
         }
         this.volume = volume;
@@ -50,12 +63,19 @@ public class Radio {
     }
 
     public void volumeUp() {
-        if (volume < 10) {
+        if (volume == 0) {
+            this.volume = volume;
+        }
+        if (volume < 100) {
             this.volume++;
         }
+
     }
 
     public void volumeDown() {
+        if (volume == 0) {
+            this.volume = volume;
+        }
         if (volume > 0) {
             this.volume--;
         }
