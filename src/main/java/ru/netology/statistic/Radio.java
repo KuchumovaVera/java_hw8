@@ -2,19 +2,19 @@ package ru.netology.statistic;
 
 public class Radio {
     private int currentStation;
-    private int maxStation;
+    private int quantityOfStations;
     private int volume;
 
-    public Radio(int maxStation) {
-        this.maxStation = maxStation;
+    public Radio(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
     }
 
     public Radio() {
-        this.maxStation = 10;
+        this.quantityOfStations = 10;
     }
 
-    public int getMaxStation() {
-        return maxStation;
+    public int getQuantityOfStations() {
+        return quantityOfStations;
     }
 
     public int getCurrentStation() {
@@ -22,7 +22,7 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > maxStation) {
+        if (currentStation > quantityOfStations - 1) {
             return;
         }
         if (currentStation < 0) {
@@ -33,14 +33,14 @@ public class Radio {
 
     public void previousStation() {
         if (currentStation == 0) {
-            this.currentStation = maxStation;
+            this.currentStation = quantityOfStations - 1;
             return;
         }
         this.currentStation--;
     }
 
     public void nextStation() {
-        if (currentStation == maxStation) {
+        if (currentStation == quantityOfStations - 1) {
             this.currentStation = 0;
             return;
         }

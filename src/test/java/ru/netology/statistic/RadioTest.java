@@ -6,12 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
-
     @Test
-    void shouldCurrentStation() {
-        Radio radio = new Radio(10);
-        int expected = 10;
-        assertEquals(expected, radio.getMaxStation());
+    void shouldQuantityOfStations() {
+        Radio radio = new Radio(13);
+        int expected = 13;
+        assertEquals(expected, radio.getQuantityOfStations());
     }
 
     @Test
@@ -46,14 +45,14 @@ class RadioTest {
         int currentStation = 0;
         radio.setCurrentStation(currentStation);
         radio.previousStation();
-        int expected = 10;
+        int expected = 9;
         assertEquals(expected, radio.getCurrentStation());
     }
 
     @Test
-    void shouldNotChangeNextStationIfStationMax() {
+    void shouldNextStationIfStationMax() {
         Radio radio = new Radio();
-        int currentStation = 10;
+        int currentStation = 9;
         radio.setCurrentStation(currentStation);
         radio.nextStation();
         int expected = 0;
